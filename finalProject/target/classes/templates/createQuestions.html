@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+	
+	
+	
+<style>
+
+body {
+	background-image:
+		url("https://i.ytimg.com/vi/a4fG8uPcKwY/maxresdefault.jpg");
+}</style>
+
+	
+	</style>
+</head>
+<body>
+
+	<form class="question" th:action="@{/saveQuestion}"
+		th:object="${question}" method="post">
+		<table style="border-collapse: separate; border-spacing: 10px;">
+			<tr>
+				<td>Introduce a question:</td>
+				<td ><input type="text" th:field="*{bodyQ}" /></td>
+				<td >Introduce an Id:</td>
+				<td><input type="text" th:field="*{idContainer}" /></td>
+				<td><button type="submit" class="btn btn-info">Save</button></td>
+			</tr>
+		</table>
+
+
+		
+		
+		<h1>Containers:</h1>
+		<table class="table table-bordered" >
+		<thead>
+			<tr>
+			<th >Id</th>
+			<th>Title</th>
+			</tr>
+
+		</thead>
+		<tbody>
+		<tr th:each="container : ${containers}">
+		
+		<td  th:text="${container.idContainer}" th:object="${container}" ></td>
+		<td  th:text="${container.title}" th:object="${title}"></td>
+		
+		</tr>
+		
+		</tbody>
+
+		</table>
+
+	</form>
+
+
+
+</body>
+</html>

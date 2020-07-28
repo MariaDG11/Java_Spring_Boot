@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form class="question" th:action="@{/saveMultipleAnswerQuestion}"
+		th:object="${question}" method="post">
+		<table style="border-collapse: separate; border-spacing: 10px;">
+			<tr>
+				<td>Introduce the question:</td>
+				<td><input type="text" th:field="*{bodyQ}" /></td>
+				<td>Introduce the answer A:</td>
+				<td><input type="text" th:field="*{optionA}" /></td>
+				<td>Introduce the answer B:</td>
+				<td><input type="text" th:field="*{optionB}" /></td></tr>
+				<tr><td>Introduce the answer C:</td>
+				<td><input type="text" th:field="*{optionC}" /></td>
+				<td>Introduce the answer D:</td>
+				<td><input type="text" th:field="*{optionD}" /></td>
+
+				<td>Introduce the id:</td>
+				<td><input type="text" th:field="*{idContainer}" /></td></tr>
+			
+		</table>
+
+		<button type="submit">Save</button>
+		<div th:each="container : ${containers}">
+			<h1>Container</h1>
+			<h2>Number of id</h2>
+			<p th:text="${container.idContainer}" th:object="${container}"></p>
+			<h2>Title</h2>
+			<p th:text="${container.title}" th:object="${title}"></p>
+
+		</div>
+	</form>
+</body>
+</html>

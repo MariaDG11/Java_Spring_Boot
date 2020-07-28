@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Available Surveys</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<style>
+aside {
+	margin-top: 8%;
+	width: 30%;
+	padding-right: 15px;
+	margin-left: 33%;
+	float: left;
+	font-style: italic;
+	background-color: #cccccc;
+	border-radius: 25px;
+	border: 2px solid #196666;
+	text-decoration: underline;
+	color: black;
+}
+
+table tbody tr td button a {
+	text-decoration: none;
+	color: white;
+}
+
+body {
+	background-image:
+		url("https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2016/11/Encuestas-WP.jpg");
+}
+</style>
+</head>
+<body>
+
+	<div th:switch="${surveys}">
+		<h2 th:case="null">There are no surveys!</h2>
+		<div th:case="*">
+			<aside>
+				<ul>
+					<h2>List of Available Surveys</h2>
+					<table class="table">
+						<thead>
+						</thead>
+						<tbody>
+							<tr th:each="survey : ${surveys}">
+
+								<td scope="col" th:text="${survey.title}"></td>
+								<td scope="col"><button type="button"
+										class="btn btn-success">
+										<a th:href="@{/showFormSurvey/{id}(id=${survey.idSurvey})}">Edit</a>
+									</button></td>
+								<td scope="col"><button type="button"
+										class="btn btn-danger">
+										<a th:href="@{/deleteSurvey/{id}(id=${survey.idSurvey})}">Delete</a>
+									</button></td>
+								 <td scope="col"><button type="button"
+                                        class="btn btn-info">
+                                        <a
+                                            th:href="@{/viewSurveyContainers/{id}(id=${survey.idSurvey})}">View</a>
+                                    </button></td>
+									</button></td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+		</ul>
+		</aside>
+	</div>
+
+</body>
+</html>

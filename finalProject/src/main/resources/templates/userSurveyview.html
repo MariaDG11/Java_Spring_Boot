@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="ISO-8859-1">
+<title>View Available Surveys</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<style>
+aside {
+	margin-top: 0%;
+	width: 30%;
+	padding-left: 0px;
+	margin-left: 35%;
+	float: left;
+	font-style: italic;
+	background-color: #cccccc;
+	border-radius: 25px;
+	border: 2px solid #196666;
+	text-decoration: underline;
+	color: black;
+}
+
+article {
+	height: 300px;
+	margin: 2px;
+	width: 800px;
+	float: left;
+}
+
+.title3 {
+	text-align: center;
+	margin-top: 8%;
+	font-size: 20px;
+	font-family: "Lucida Console", Courier, monospace;
+	margin-left: 30%;
+	border-radius: 20px;
+	border: 2px solid #196666;
+	background-color: #cccccc;
+	width: 40%;
+	color: black;
+}
+
+.user {
+	text-align: center;
+	font-size: 40px;
+	text-decoration: underline;
+	text-shadow: 2px 2px grey;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+body {
+	background-image:
+		url("https://www.ingeniovirtual.com/wp-content/uploads/encuestas-online.jpg");
+}
+</style>
+</head>
+<body>
+	<h1 class="user">User page</h1>
+	<div th:switch="${surveys}">
+		<h2 th:case="null">There are no surveys!</h2>
+		<div th:case="*">
+			<p class="title3">Selecciona la encuesta que quieras realizar:</p>
+			<form class="question" th:action="@{/loginUser}"	th:object="${login}" method="post" >
+			<aside>
+
+				<ul>
+
+					<h2>List of Available Surveys</h2>
+					
+					<table class="table">
+						<thead>
+						</thead>
+						<tbody>
+						
+							<tr th:each="survey : ${surveys}">
+								<td scope="col" th:text="${survey.idSurvey}"></td>
+								<td scope="col" th:text="${survey.title}"></td>
+								<td scope="col" th:text="${survey.description}"></td>
+								<td scope="col"><a th:href="@{/userSurveyview/__${survey.idSurvey}__}" type="submit" class="btn-secondary"	>Enter</a></td>
+							
+							
+							</tr>
+						</tbody>
+					</table></form>
+		</div>
+		</ul>
+		</aside>
+		
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Página de Ínicio</title>
+<style>
+nav {
+	text-align: center;
+	margin-top: 10%;
+}
+
+button {
+	box-shadow: 5px 6px #a6a6a6;
+}
+
+.title1 {
+	text-align: center;
+	font-size: 40px;
+	text-decoration: underline;
+	text-shadow: 2px 2px grey;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+nav ul h2 button a {
+	text-decoration: none;
+	color: black;
+}
+
+header {
+	background-image:
+		url("https://ecoembesdudasreciclaje.es/wp-content/uploads/2019/06/cuaderno.jpg");
+	height: 625px;
+}
+</style>
+</head>
+
+<body>
+
+	<header>
+		<p class="title1">Welcome to our page!</p>
+        <nav>
+            <ul>
+                <h2><button type="button" class="btn btn-success"><a th:href="@{/userSurveyview}">User page: Take one of our surveys</a></button></h2>
+                <h2><button type="button" class="btn btn-warning"><a th:href="@{/adminPage}">Survey Administration Page</a></button></h2>  
+            </ul>
+        </nav>
+	</header>
+   
+</body>
+
+</html>
+

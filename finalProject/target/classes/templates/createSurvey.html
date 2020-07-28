@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Survey</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+  
+  .titleUpdate{
+  
+   text-align:center;
+     font-size:40px;
+      text-decoration: underline;
+      text-shadow: 2px 2px grey;
+      font-family: "Lucida Console", Courier, monospace;
+  
+  
+  
+  }
+  
+  form{
+    margin-left: 40%;
+    margin-top: 5%;
+	width: 30%;
+	padding-left: 0px;
+	margin-left: 35%;
+	float: left;
+	font-style: italic;
+	background-color: #cccccc;
+	border-radius: 25px;
+    border: 2px solid  #196666;
+    text-decoration: underline;
+    color:black;
+  
+  }
+
+body{
+
+background-image: url("https://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/fondo-de-escritorio-de-boligrafo.jpg");
+
+}
+  
+  </style>
+
+
+
+
+</head>
+<body>
+
+<form th:action="@{/saveSurvey}" th:object="${survey}" method="post">
+			<table style="border-collapse: separate; border-spacing: 10px;">
+				<tr>
+					<td>Title:</td>
+					<td><input type="text" th:field="*{title}" /></td>
+				</tr>
+				<tr>
+					<td>Short Description</td>
+					<td><input type="text" th:field="*{description}" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button   type="submit">Save</button></td>
+				</tr>
+				
+
+			</table>
+		</form>
+		
+				
+				
+</body>
+</html>

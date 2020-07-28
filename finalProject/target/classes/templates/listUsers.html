@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List Users</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<style>
+.btn btn-info {
+	color: black;
+}
+
+.titleUser {
+	margin-left: 25%;
+	font-size: 40px;
+	text-decoration: underline;
+	text-shadow: 2px 2px grey;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+table tbody tr td button a {
+	text-decoration: none;
+	color: white;
+}
+
+table tbody tr td {
+	font-weight: 900;
+	color: black;
+}
+
+body {
+	background-image:
+		url("https://i.ytimg.com/vi/a4fG8uPcKwY/maxresdefault.jpg");
+}
+</style>
+
+</head>
+<body>
+
+
+	<div th:switch="${users}">
+		<h2 th:case="null">There are no users!</h2>
+		<div th:case="*">
+			<h2 class="titleUser">Users</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Name</th>
+						<th scope="col">Surname</th>
+						<th scope="col">Age</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${users}">
+						<td th:text="${user.idUser}"></td>
+						<td th:text="${user.name}"></td>
+						<td th:text="${user.surname}"></td>
+						<td th:text="${user.age}"></td>
+						<td><button type="button" class="btn btn-info">
+								<a th:href="@{/showFormUser/{id}(id=${user.idUser})}">Edit</a>
+							</button></td>
+						<td><button type="button" class="btn btn-danger">
+								<a th:href="@{/deleteUser/{id}(id=${user.idUser})}">Delete</a>
+							</button></td>
+						<td><button type="button" class="btn btn-info">
+								<a th:href="@{/viewSurveyByUser/{id}(id=${user.idUser})}">View</a>
+							</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

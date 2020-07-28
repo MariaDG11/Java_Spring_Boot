@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Updater</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+aside {
+  width: 30%;
+  padding-left: 0px;
+  margin-left: 0px;
+  float: left;
+  font-style: italic;
+  background-color: lightgray;
+}
+</style>
+</head>
+<body>
+	<div>
+		<h1>Update Registered User</h1>
+		<br>
+
+		<form th:action="@{/updateUser}" th:object="${user}" method="post">
+			<table style="border-collapse: separate; border-spacing: 10px;">			
+				<tr>
+				<tr>
+					<td>IdUser:</td>
+					<td><input type="text" th:field="*{idUser}" readonly="readonly"/></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" th:field="*{name}"/></td>
+				</tr>
+				<tr>
+					<td>Surname:</td>
+					<td><input type="text" th:field="*{surname}"/></td>
+				</tr>
+
+				<tr>
+					<td>Age:</td>
+					<td><input type="text" th:field="*{age}"/></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Update</button></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+</body>
+</html>

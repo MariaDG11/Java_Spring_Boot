@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List Users</title>
+</head>
+<body>
+
+
+	<div th:switch="${questions}">
+		<h2 th:case="null">There are no users!</h2>
+		<div th:case="*">
+			<h2>Users</h2>
+			<table>
+				<tbody>
+					<tr th:each="question : ${questions}">
+						<td th:text="${question.bodyQ}"></td>
+		
+						<!--  <td><a
+							th:href="@{/showFormUser/{id}(id=${user.idUser})}">Edit</a></td>
+						<td><a
+							th:href="@{/deleteUser/{id}(id=${user.idUser})}">Delete</a></td>-->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Survey</title>
+</head>
+<body>
+	<div>
+		<h1>Edit Available Surveys</h1>
+		<br>	
+
+		<form th:action="@{/updateSurvey}" th:object="${survey}" method="post">
+			<table style="border-collapse: separate; border-spacing: 10px;">
+				<tr>
+					<td>Id Survey:</td>
+					<td><input type="text" th:field="*{idSurvey}"
+						readonly="readonly" /></td>
+				</tr>
+
+				<tr>
+					<td>Title:</td>
+					<td><input type="text" th:field="*{title}" /></td>
+				</tr>
+
+				<tr>
+					<td>Description:</td>
+					<td><input type="text" th:field="*{description}" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">save</button></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+</body>

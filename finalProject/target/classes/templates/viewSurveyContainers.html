@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<div>
+		<div>
+			<aside>
+				<ul>
+					<h2>List of Questions</h2>
+					<table>
+						<thead>
+						</thead>
+						<tbody>
+								
+ 								<tr th:each="question : ${questions}">
+ 								<td th:text="${question.bodyQ}"></td>
+ 								
+ 							<!-- 	<td th:text="${container.idContainer}"></td> -->
+
+<!-- 						<tr th:if="${container.idContainer == question.container.idContainer}" th:text="${question.bodyQ}">  -->
+
+							</tr>
+						</tbody>
+					</table>
+		</div>
+		</ul>
+		</aside>
+	</div>
+</body>
+</html>
