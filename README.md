@@ -7,3 +7,4 @@ Si el proyecto da algún problema:
 2-Maven: clean project
 3-Maven: Update project
 
+BBDD: MySQL (PHPMyAdmin -XAMPP)
